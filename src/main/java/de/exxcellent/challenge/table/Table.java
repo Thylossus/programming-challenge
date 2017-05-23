@@ -55,6 +55,13 @@ public class Table {
         return this.rows[index];
     }
 
+    /**
+     * Sort the rows in the table with the given reducer.
+     * The reducer is used to calculate a representation for each row.
+     * This representation is then used by the row comparator.
+     *
+     * @param reducer Reducer object that allows to reduce a row to a single integer value.
+     */
     public void sort(RowReducer reducer) {
         ArrayList<Row> rows = new ArrayList<>(Arrays.asList(this.rows));
         rows.sort(new RowComparator(reducer));

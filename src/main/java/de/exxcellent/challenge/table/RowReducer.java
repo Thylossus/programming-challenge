@@ -21,6 +21,11 @@ public class RowReducer {
     private String operation;
     private int[] cellIndices;
 
+    /**
+     *
+     * @param operation Which operation to perform on the values. Use the static values of this class (e.g. ADD).
+     * @param cellIndices On which cells in a row to perform the operation.
+     */
     public RowReducer(String operation, int[] cellIndices) {
         this.operation = operation;
         this.cellIndices = cellIndices;

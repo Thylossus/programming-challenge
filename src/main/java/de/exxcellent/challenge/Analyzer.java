@@ -22,12 +22,27 @@ public class Analyzer {
     private String outputColumn;
     private String[] differenceColumns;
 
+    /**
+     * Create an analyzer for finding a row with the lowest value for a difference between column values.
+     *
+     * @param pathToCsv Path to the CSV file.
+     * @param outputColumn Which column should be used to represent the result, i.e. the row with the lowest value for a
+     *                     difference between column values.
+     * @param differenceColumns Which columns are used to calculate the difference. The order of column names is
+     *                          important as subtraction is not commutative.
+     */
     public Analyzer(Path pathToCsv, String outputColumn, String[] differenceColumns) {
         this.csvFile = new CsvFile(pathToCsv, ",");
         this.outputColumn = outputColumn;
         this.differenceColumns = differenceColumns;
     }
 
+    /**
+     * Find the row with the smallest difference in column values and return the value for the output column
+     * in this row.
+     *
+     * @return Value of the output column in the found row.
+     */
     public String getSmallestDifferenceOutputCellValue() {
         try {
             Table table = csvFile.load();

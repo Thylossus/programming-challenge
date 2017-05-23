@@ -10,6 +10,11 @@ import java.nio.file.Paths;
  */
 public final class App {
 
+    /**
+     * Run the app by using the analyzers for the weather and the football task.
+     *
+     * @param args
+     */
     public static void main(String... args) {
 
         Analyzer weatherAnalyzer = new Analyzer(

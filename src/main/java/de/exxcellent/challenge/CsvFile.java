@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -26,6 +25,11 @@ public class CsvFile {
     private String delimiter;
     private Table content;
 
+    /**
+     *
+     * @param path Path to the CSV file
+     * @param delimiter Delimiter used in the CSV file
+     */
     public CsvFile(Path path, String delimiter) {
         this.path = path;
         this.delimiter = delimiter;
@@ -40,7 +44,7 @@ public class CsvFile {
      * If an IO error occurs, the table will be empty.
      *
      * @return A table representation of the CSV file's contents.
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException If no file can be found at the specified path
      */
     public Table load() throws FileNotFoundException {
         if (this.content != null) {
@@ -60,8 +64,6 @@ public class CsvFile {
             List<String[]> rows = new LinkedList<>();
 
             for (String line: (Iterable<String>) lines::iterator) {
-                //System.out.println(Arrays.toString(line.split(this.delimiter)));
-
                 if (headersRead) {
                     rows.add(line.split(this.delimiter));
                 } else {
@@ -72,7 +74,7 @@ public class CsvFile {
 
             return new Table(headers, rows.toArray(new String[rows.size()][]));
         } catch (IOException ex) {
-            // TODO: logging
+            System.out.println("Failed to read the CSV file. Table is empty.");
             return new Table(null, null);
         }
     }

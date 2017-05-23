@@ -15,7 +15,20 @@ public class Table {
     private Map<String, Integer> headers;
     private Row[] rows;
 
+    /**
+     * Populate the table with the provided strings.
+     * @param headers A list of headers.
+     * @param rows A list of rows where each row, in turn, is a list of strings.
+     */
     public Table(String[] headers, String[][] rows) {
+        if (headers == null) {
+            headers = new String[]{};
+        }
+
+        if (rows == null) {
+            rows = new String[][]{{}};
+        }
+
         this.headers = new HashMap<>();
 
         for (int i = 0; i < headers.length; i++) {

@@ -53,8 +53,9 @@ public class CsvFileTest {
 
         Assert.assertEquals(
                 "The second header should be 'Header B'",
-                "Header B",
-                table.getHeaders().values().toArray()[1]
+                // Second header => index 1
+                1,
+                table.getHeaders().get("Header B").intValue()
         );
 
         Assert.assertEquals(

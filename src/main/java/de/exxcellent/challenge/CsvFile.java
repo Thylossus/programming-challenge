@@ -31,7 +31,7 @@ public class CsvFile {
             throw new FileNotFoundException("Could not find file at " + this.path.toString());
         }
 
-        return new Table();
+        return new Table(null, null);
     }
 
 }

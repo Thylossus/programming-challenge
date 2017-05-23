@@ -41,6 +41,20 @@ public class Table {
         }
     }
 
+    /**
+     * Get a row by its index.
+     *
+     * @param index The row's index.
+     * @return The row at the index.
+     * @throws IndexOutOfBoundsException Throws if the index exceeds the length of the row array.
+     */
+    public Row getRow(int index) throws IndexOutOfBoundsException {
+        if (index >= this.rows.length || index < 0) {
+            throw new IndexOutOfBoundsException("The index " + index + " is invalid. There are " + this.rows.length + " rows");
+        }
+
+        return this.rows[index];
+    }
 
     public Map<String, Integer> getHeaders() {
         return headers;

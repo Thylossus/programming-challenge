@@ -58,4 +58,27 @@ public class TableTest {
                 table.getRows()[1].getCells()[0].getValue()
         );
     }
+
+    @Test
+    public void shouldReturnARowByIndex() {
+        String[] headers = {"A"};
+        String[][] rows = {{"1"}};
+
+        Table table = new Table(headers, rows);
+
+        Assert.assertEquals(
+                "Should return the correct row",
+                "1",
+                table.getRow(0).getCells()[0].getValue()
+        );
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void shouldThrowIndexOutOfBounds() throws IndexOutOfBoundsException {
+        String[] headers = {"A"};
+        String[][] rows = {{"1"}};
+
+        Table table = new Table(headers, rows);
+        table.getRow(1);
+    }
 }

@@ -12,12 +12,14 @@ public final class App {
 
     public static void main(String... args) {
 
-        WeatherAnalyzer analyzer = new WeatherAnalyzer(Paths.get("src/main/resources/de/exxcellent/challenge/weather.csv"));
+        Analyzer weatherAnalyzer = new Analyzer(
+                Paths.get("src/main/resources/de/exxcellent/challenge/weather.csv"),
+                "Day",
+                new String[]{"MxT", "MnT"}
+        );
 
-        String dayWithSmallestTempSpread = analyzer.getDayWithSmallestTemperatureSpread();
+        String dayWithSmallestTempSpread = weatherAnalyzer.getSmallestDifferenceOutputCellValue();
         String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
-
-
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);

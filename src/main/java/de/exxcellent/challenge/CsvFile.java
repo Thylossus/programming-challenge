@@ -1,5 +1,9 @@
 package de.exxcellent.challenge;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+
 /**
  * CSV File class
  *
@@ -9,16 +13,22 @@ package de.exxcellent.challenge;
  */
 public class CsvFile {
 
-    private String path;
+    private Path path;
     private String delimiter;
     private Table content;
 
-    public CsvFile(String path, String delimiter) {
+    public CsvFile(Path path, String delimiter) {
         this.path = path;
         this.delimiter = delimiter;
     }
 
-    public Table load() {
+    public Table load() throws FileNotFoundException {
+        File csvFile = this.path.toFile();
+
+        if (!csvFile.exists()) {
+            throw new FileNotFoundException("Could not find file at " + this.path.toString());
+        }
+
         return new Table();
     }
 

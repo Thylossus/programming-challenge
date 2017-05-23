@@ -10,16 +10,10 @@ import org.junit.Test;
  */
 public class AppTest {
 
-    private String successLabel = "not successful";
-
     @Before
     public void setUp() throws Exception {
-        successLabel = "successful";
+
     }
 
-    @Test
-    public void aPointlessTest() {
-        Assert.assertEquals("Expectations met", "successful", successLabel);
-    }
 
 }

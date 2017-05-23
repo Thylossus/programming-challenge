@@ -17,9 +17,14 @@ public final class App {
                 "Day",
                 new String[]{"MxT", "MnT"}
         );
+        Analyzer footballAnalyzer = new Analyzer(
+                Paths.get("src/main/resources/de/exxcellent/challenge/football.csv"),
+                "Team",
+                new String[]{"Goals", "Goals Allowed"}
+        );
 
         String dayWithSmallestTempSpread = weatherAnalyzer.getSmallestDifferenceOutputCellValue();
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+        String teamWithSmallestGoalSpread = footballAnalyzer.getSmallestDifferenceOutputCellValue();
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);

@@ -44,7 +44,7 @@ public class Analyzer {
             Row smallestRow = table.getRow(0);
             return smallestRow.getCells()[outputColumnIndex].getValue();
         } catch (FileNotFoundException e) {
-            System.out.println("Could not find the weather table.");
+            System.out.println("Could not find the CSV file.");
             return "";
         }
     }

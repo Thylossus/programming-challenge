@@ -25,6 +25,6 @@ public class RowComparator implements Comparator<Row> {
      */
     @Override
     public int compare(Row a, Row b) {
-        return this.reducer.execute(a) - this.reducer.execute(b);
+        return Math.abs(this.reducer.execute(a)) - Math.abs(this.reducer.execute(b));
     }
 }

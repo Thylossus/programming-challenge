@@ -8,4 +8,15 @@ package de.exxcellent.challenge.table;
  * @author Tobias Kahse <tobias.kahse@outlook.com>
  */
 public class Row {
+
+    private Cell[] cells;
+
+    public Row(String[] cells) {
+
+    }
+
+
+    public Cell[] getCells() {
+        return cells;
+    }
 }

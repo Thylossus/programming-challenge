@@ -37,7 +37,7 @@ public class Table {
 
         this.rows = new Row[rows.length];
         for (int j = 0; j < rows.length; j++) {
-            this.rows[j] = new Row();
+            this.rows[j] = new Row(rows[j]);
         }
     }
 

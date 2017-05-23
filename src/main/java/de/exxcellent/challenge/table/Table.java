@@ -1,7 +1,6 @@
 package de.exxcellent.challenge.table;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Table class
@@ -54,6 +53,12 @@ public class Table {
         }
 
         return this.rows[index];
+    }
+
+    public void sort(RowReducer reducer) {
+        ArrayList<Row> rows = new ArrayList<>(Arrays.asList(this.rows));
+        rows.sort(new RowComparator(reducer));
+        this.rows = rows.toArray(new Row[rows.size()]);
     }
 
     public Map<String, Integer> getHeaders() {

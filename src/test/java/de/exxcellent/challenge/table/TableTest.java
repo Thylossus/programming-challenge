@@ -81,4 +81,26 @@ public class TableTest {
         Table table = new Table(headers, rows);
         table.getRow(1);
     }
+
+    @Test
+    public void shouldSortRowsWithGivenReducer() {
+        String[] headers = {"A", "B", "C", "D", "E"};
+        String[][] rows = {
+                {"4", "4", "4", "4", "4"},
+                {"3", "3", "3", "3", "3"},
+                {"2", "2", "2", "2", "2"},
+                {"1", "1", "1", "1", "1"}
+        };
+
+        Table table = new Table(headers, rows);
+        RowReducer reducer = new RowReducer(RowReducer.ADD, new int[]{0, 1, 2, 3, 4});
+
+        table.sort(reducer);
+
+        Assert.assertEquals(
+                "Last row should be the first row now",
+                "1",
+                table.getRow(0).getCells()[0].getValue()
+        );
+    }
 }

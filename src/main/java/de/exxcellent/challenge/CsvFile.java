@@ -1,5 +1,7 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.table.Table;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;

@@ -1,4 +1,4 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.table;
 
 /**
  * Test for the Table class.

@@ -24,7 +24,7 @@ public class Row {
         this.cells = new Cell[cells.length];
 
         for (int i = 0; i < cells.length; i++) {
-            this.cells[i] = new Cell();
+            this.cells[i] = new Cell(cells[i]);
         }
     }
 

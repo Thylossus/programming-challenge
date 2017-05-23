@@ -20,19 +20,7 @@ public final class App {
         String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
         String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
 
-        CsvFile weatherFile = new CsvFile(Paths.get("src/main/resources/weather.csv"), ",");
-        try {
-            Table weatherTable = weatherFile.load();
-            int dayColumn = weatherTable.getHeaders().get("Day");
-            int maxColumn = weatherTable.getHeaders().get("MxT");
-            int minColumn = weatherTable.getHeaders().get("MnT");
-            RowReducer reducer = new RowReducer(RowReducer.SUBTRACT, new int[]{maxColumn, minColumn});
-            weatherTable.sort(reducer);
-            Row smallestRow = weatherTable.getRow(0);
-            dayWithSmallestTempSpread = smallestRow.getCells()[dayColumn].getValue();
-        } catch (FileNotFoundException e) {
-            System.out.println("Could not find the weather table.");
-        }
+
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);

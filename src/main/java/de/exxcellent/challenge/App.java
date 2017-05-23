@@ -15,11 +15,11 @@ public final class App {
         WeatherAnalyzer analyzer = new WeatherAnalyzer(Paths.get("src/main/resources/de/exxcellent/challenge/weather.csv"));
 
         String dayWithSmallestTempSpread = analyzer.getDayWithSmallestTemperatureSpread();
-        String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
+        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
 
 
 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
-        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);
+        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }

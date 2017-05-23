@@ -20,4 +20,18 @@ public class RowTest {
                 row.getCells().length
         );
     }
+
+    @Test
+    public void shouldContainCellsWithTheCorrectValues() {
+        String[] cells = {"A", "B", "C", "1", "1.0"};
+        Row row = new Row(cells);
+
+        for (int i = 0; i < cells.length; i++) {
+            Assert.assertEquals(
+                    "Cell " + i + " should contain the value of the " + i + "-th entry in the cells array",
+                    cells[i],
+                    row.getCells()[i].getValue()
+            );
+        }
+    }
 }

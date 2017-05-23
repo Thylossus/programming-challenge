@@ -51,5 +51,11 @@ public class TableTest {
                 2,
                 table.getRows().length
         );
+
+        Assert.assertEquals(
+                "The table's cells should contain the correct data.",
+                "Jane Doe",
+                table.getRows()[1].getCells()[0].getValue()
+        );
     }
 }

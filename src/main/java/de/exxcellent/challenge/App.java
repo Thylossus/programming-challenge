@@ -1,10 +1,5 @@
 package de.exxcellent.challenge;
 
-import de.exxcellent.challenge.table.Row;
-import de.exxcellent.challenge.table.RowReducer;
-import de.exxcellent.challenge.table.Table;
-
-import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 /**
@@ -17,7 +12,9 @@ public final class App {
 
     public static void main(String... args) {
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+        WeatherAnalyzer analyzer = new WeatherAnalyzer(Paths.get("src/main/resources/de/exxcellent/challenge/weather.csv"));
+
+        String dayWithSmallestTempSpread = analyzer.getDayWithSmallestTemperatureSpread();
         String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
 
 

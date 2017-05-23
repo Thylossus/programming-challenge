@@ -12,8 +12,8 @@ public class RowReducerTest {
     @Test
     public void shouldAddCellValues() {
         Row row = new Row(new String[]{"a", "1", "2"});
-        RowReducer reducer = new RowReducer(RowReducer.ADD, row, new int[]{1, 2});
-        int result = reducer.execute();
+        RowReducer reducer = new RowReducer(RowReducer.ADD, new int[]{1, 2});
+        int result = reducer.execute(row);
 
         Assert.assertEquals(
                 "1 + 2 = 3",
@@ -25,8 +25,8 @@ public class RowReducerTest {
     @Test
     public void shouldSubtractCellValues() {
         Row row = new Row(new String[]{"a", "5", "3"});
-        RowReducer reducer = new RowReducer(RowReducer.SUBTRACT, row, new int[]{1, 2});
-        int result = reducer.execute();
+        RowReducer reducer = new RowReducer(RowReducer.SUBTRACT, new int[]{1, 2});
+        int result = reducer.execute(row);
 
         Assert.assertEquals(
                 "5 - 3 = 2",
@@ -38,8 +38,8 @@ public class RowReducerTest {
     @Test(expected = NumberFormatException.class)
     public void shouldThrowNumberFormatException() throws NumberFormatException {
         Row row = new Row(new String[]{"a", "1.0", "2"});
-        RowReducer reducer = new RowReducer(RowReducer.ADD, row, new int[]{1, 2});
-        reducer.execute();
+        RowReducer reducer = new RowReducer(RowReducer.ADD, new int[]{1, 2});
+        reducer.execute(row);
     }
 
 }

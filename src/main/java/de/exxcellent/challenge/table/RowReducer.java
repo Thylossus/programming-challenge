@@ -19,12 +19,10 @@ public class RowReducer {
     public static final String SUBTRACT = "sub";
 
     private String operation;
-    private Row row;
     private int[] cellIndices;
 
-    public RowReducer(String operation, Row row, int[] cellIndices) {
+    public RowReducer(String operation, int[] cellIndices) {
         this.operation = operation;
-        this.row = row;
         this.cellIndices = cellIndices;
     }
 
@@ -32,13 +30,15 @@ public class RowReducer {
      * Execute the reduction operation on the row.
      * This is done by converting string values into integers and by applying a reduce operation.
      *
+     * @param row The row on which the operation shall be performed.
+     *
      * @return The result of the reduction.
      * @throws NumberFormatException If a cell value cannot be converted to an integer.
      * @throws UnsupportedOperationException If an unsupported operation is requested.
      */
-    public int execute() throws NumberFormatException, UnsupportedOperationException {
+    public int execute(Row row) throws NumberFormatException, UnsupportedOperationException {
         List<Integer> values = new ArrayList<>(this.cellIndices.length);
-        Cell[] cells = this.row.getCells();
+        Cell[] cells = row.getCells();
 
         for (int index : this.cellIndices) {
             int value = Integer.parseInt(cells[index].getValue());
